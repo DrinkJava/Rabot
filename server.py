@@ -2,12 +2,13 @@
 Server for chatbot.
 """
 import curse
+import weather
 from flask import Flask
 from flask import request
 from flask import json
 import re
 
-modules = {":curse" : curse.curse}
+modules = {":curse" : curse.curse, ":weather" : weather.weather}
 
 app = Flask(__name__)
 
@@ -24,4 +25,4 @@ def parse(data):
         fn = modules.get(cmd, -1)
         if fn == -1:
             continue
-        return fn()
+        return fn(body)
