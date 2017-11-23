@@ -1,14 +1,16 @@
 """
 Server for chatbot.
 """
-import curse
-import weather
+import curse, weather, aesthetic
 from flask import Flask
 from flask import request
 from flask import json
 import re
 
-modules = {":curse" : curse.curse, ":weather" : weather.weather}
+
+modules = {":curse" : curse.curse,
+           ":weather" : weather.weather,
+           ":aesthetic" : aesthetic.trigger}
 
 app = Flask(__name__)
 
